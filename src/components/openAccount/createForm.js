@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux';
 import { openAccount } from '../../store/actions/accounts.js';
 class OpenAccountForm extends Component {
@@ -28,6 +29,7 @@ class OpenAccountForm extends Component {
             <div className="dialog m"></div>
             <div className="form-card">
               <h2>Open Account</h2>
+              <>{this.props.isLoading ? <Loader type='ThreeDots' color='black' height={30} width={30} /> : null}</>
               <>{this.handleError()}</>
               <form onSubmit={this.openAccount}>
                 <label>Account type</label>
@@ -59,11 +61,13 @@ OpenAccountForm.propTypes = {
   error: PropTypes.string.isRequired,
   success: PropTypes.string.isRequired,
   openAccount: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 }
 const mapToProps = state => ({
   account: state.account.accountDetails,
   error: state.account.error,
   success: state.account.success,
+  isLoading: state.auth.isLoading,
 });
 const mapToDispatch = {
   openAccount,

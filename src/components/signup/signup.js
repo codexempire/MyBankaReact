@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 import PropType from 'prop-types';
+import Loader from 'react-loader-spinner';
 import { signup } from '../../store/actions/auth';
 import { checkLoggedUser } from '../../store/actions/common';
 
@@ -40,6 +41,7 @@ class SignupForm extends Component {
       <>
         <div className="form-card">
           <h3>SIGNUP</h3>
+            <>{this.props.isLoading ? <Loader type='ThreeDots' color='black' height={30} width={30} /> : null}</>
           <form onSubmit={this.signup}>
             <>{this.handleServerResponse()}</>
             <div id="input-half">
@@ -73,15 +75,17 @@ class SignupForm extends Component {
   }
 }
 
-SignupForm.PropType = {
+SignupForm.propType = {
   user: PropType.object.isRequired,
   error: PropType.string.isRequired,
   signup: PropType.func.isRequired,
-  checkLoggedUser: PropType.func.isRequired
+  checkLoggedUser: PropType.func.isRequired,
+  isLoading: PropType.bool.isRequired,
 }
 const mapStateToProps = state => ({
   user: state.auth.user,
-  error: state.auth.error
+  error: state.auth.error,
+  isLoading: state.auth.isLoading,
 });
 const mapDispatchToProps = {
   signup,
