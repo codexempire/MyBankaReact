@@ -17,10 +17,13 @@ export const signup = (body) => async dispatch => {
     dispatch({ type: END_AUTH_REQUEST });
     dispatch({ type: SIGNED_SUCCESS, payload: userData });
   } catch (error) {
-    const err =
+    let err =
       (typeof error.response !== 'undefined'
         ? error.response.data.error.replace(/[""]/g, '').split(':', 1)
         : error.message);
+    if (err = `password with value ${body.password} fails to match the required pattern`) {
+      err = 'password should alphanumeric, no special characters e.g Example123';
+    }
     dispatch({ type: END_AUTH_REQUEST });
     dispatch({ type: AUTH_ERROR, payload: err });
   }
