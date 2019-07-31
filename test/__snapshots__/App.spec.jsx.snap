@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render the App component correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Routes />
+  </BrowserRouter>
+</Provider>
+`;
+
+exports[`Header should render the header for the application correctly 1`] = `
+<Fragment>
+  <h1>
+    Hi React
+  </h1>
+  <ul>
+    <li>
+      <Link
+        to="/"
+      >
+        Home
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="/user"
+      >
+        Users
+      </Link>
+    </li>
+  </ul>
+</Fragment>
+`;
+
+exports[`Landing page shoul render the landing page for the application correctly 1`] = `
+<Fragment>
+  <header
+    className="grid head"
+  >
+    <div
+      className="image"
+    />
+    <div
+      className="container"
+    >
+      <h1>
+        <strong>
+          M
+        </strong>
+        y
+        <strong>
+          B
+        </strong>
+        anka
+      </h1>
+      <p>
+         A bank you can trust...
+      </p>
+      <Link
+        className="btn btn-purple"
+        style={
+          Object {
+            "marginRight": "5px",
+          }
+        }
+        to="/login"
+      >
+        Login
+      </Link>
+      <Link
+        className="btn btn-border-y"
+        to="/signup"
+      >
+        Signup
+      </Link>
+    </div>
+  </header>
+</Fragment>
+`;
+
+exports[`Routes should render the routes for the application correctly 1`] = `
+<Switch>
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/user"
+  />
+</Switch>
+`;
