@@ -7,7 +7,6 @@ module.exports = {
   output: {
     filename: 'app_bundle.js',
     path: path.join(__dirname, './dist'),
-    publicPath: '/',
   },
   devServer: {
     historyApiFallback: true,
@@ -17,21 +16,14 @@ module.exports = {
       ignored: /node_modules/,
     },
     host: 'localhost',
-    port: 5000,
-    proxy: {
-      '/api/v1/*': {
-        target: 'http://localhost:3000/',
-        secure: false,
-        changeOrigin: true,
-      },
-    },
+    port: 2000,
   },
   module: {
     rules: [
       {
         test: /\.jsx|js?$/,
         exclude: /node_modules/,
-        loader: ['babel-loader', 'eslint-loader'],
+        loader: ['babel-loader'],
       },
       {
         test: /\.css$/,
@@ -49,8 +41,7 @@ module.exports = {
       template: './src/index.html',
       path: path.join(__dirname, './dist'),
       filename: 'index.html',
-    }),
-    new webpack.HotModuleReplacementPlugin({}),
+    })
   ],
   resolve: {
     extensions: ['.jsx', '.js'],
