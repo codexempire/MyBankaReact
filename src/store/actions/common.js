@@ -9,7 +9,6 @@ export const checkLoggedUser = () => async dispatch => {
     const { exp, data } = payload;
     const time = Date.now() / 1000;
     if (exp > time) {
-      console.log('hehe')
       await dispatch({ type: SIGNED_SUCCESS, payload: data });
       return;
     }

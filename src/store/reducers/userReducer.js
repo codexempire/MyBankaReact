@@ -10,6 +10,7 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoading: true,
+        error: ''
       };
     case 'AUTH_ERROR':
       return {

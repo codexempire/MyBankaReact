@@ -14,6 +14,7 @@ exports[`Form Test should display the layout for creating an account properly 1`
     <OpenAccountForm
       account={Object {}}
       error=""
+      isLoading={false}
       openAccount={[Function]}
       success=""
     >
@@ -260,6 +261,7 @@ exports[`Layout Test should display the layout for creating an account properly 
                 <OpenAccountForm
                   account={Object {}}
                   error=""
+                  isLoading={false}
                   openAccount={[Function]}
                   success=""
                 >
